@@ -1,6 +1,7 @@
 @extends('layout\user-layout')
 @section('content')
     <p>This is Welcome page .</p>
+
     <div class="container">
         @if($message = Session::get('success'))
             <div class="alert alert-success">
@@ -13,9 +14,15 @@
                     <div class="d-flex justify-content-between">
                         <div>list</div>
                         <div>
+                            @if(count($URLs) < 10)
                             <a href="/new" class="btn btn-primary">สร้างแบบฟอร์ม</a>
+                            @else
+                                <a href="/" class="btn btn-secondary" disabled>หมดโคต้า</a>
+                            @endif
                         </div>
+
                     </div>
+                    <p>Your Quota Remaing {{10-count($URLs)}}/10</p>
                 </h5>
                 <table class="table table-striped">
                     <thead>
@@ -33,7 +40,7 @@
                                 <td>{{$index+1}}</td>
                                 <td>{{$URL ->created_at}}</td>
                                 <td>{{$URL ->Long_URL}}</td>
-                                <td><a href="http://www.{{$URL ->Short_URL }}">{{$URL ->Short_URL}}</a></td>
+                                <td><a href="/gt/{{$URL ->Short_URL }}">{{$URL ->Short_URL}}</a></td>
 
                     </tr>
                     @endforeach

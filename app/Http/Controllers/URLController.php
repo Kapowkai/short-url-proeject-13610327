@@ -45,7 +45,7 @@ class URLController extends Controller
             $randomNumber .= $characters[rand(0, $charactersLength - 1)];
         }
 
-        $URL->Short_URL = "short.local/gt/$myIDnumber$randomString$randomNumber";
+        $URL->Short_URL = "$myIDnumber$randomString$randomNumber";
         $URL->save();
 
         //dd($URL->id);

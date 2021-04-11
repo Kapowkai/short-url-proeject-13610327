@@ -24,7 +24,7 @@ Route::get('/auth/callback','\App\Http\Controllers\LoginController@handleProvide
 Route::get('/', 'URLController@index');
 Route::get('/new', 'PageController@new');
 Route::get('/show/{id}','URLController@show');
-Route::get('/{user}/{id}','UserURLController@index');
+Route::get('/gt/{id}','UserURLController@index');
 
 Route::post('/new', 'URLController@store');
 
